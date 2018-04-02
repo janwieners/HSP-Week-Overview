@@ -1,3 +1,35 @@
 <div class="container-fluid">
 
+  <ngb-tabset>
+
+    <ngb-tab>
+      <ng-template ngbTabTitle>Ballsport und Spiele</ng-template>
+      <ng-template ngbTabContent>
+
+        <div class="row" id="coursetable">
+
+          <div class="col"
+               *ngFor="let dId of dateIds">
+
+            <h2 class="courseday">{{ courses[dId].title }}</h2>
+            <div *ngFor="let course of courses[dId].data">
+
+              <a href="#"
+                 class="{{ course.bgrClass }}">
+                <div class="course">
+                  <h3>{{ course.title }}</h3>
+                  {{ course.starttime }} - {{ course.endtime }} / {{ course.place }}
+                </div>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </ng-template>
+    </ngb-tab>
+
+  </ngb-tabset>
+
 </div>
