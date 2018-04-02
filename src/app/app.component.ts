@@ -50,83 +50,86 @@ export class AppComponent {
   constructor(private http: HttpClient) {
   }
 
-  resetCourses() {
+  private resetCourses() {
     for (let day in this.courses) {
-      this.courses[day].data = [];
+      this.courses[day].data.length = 0;
     }
   };
 
-  ngOnInit(): void {
+  private getCourses(taxonomyId) {
 
-    let taxonomyId = 36;
     let url = 'https://myhsp.hochschulsport-koeln.de/json/coursedatesbytid/' + taxonomyId + '?_format=json';
 
     this.http.get(url).subscribe((result: any) => {
 
         this.resetCourses();
 
-        let cur, cncl, closingDates, placeName, courseTitle;
+        let cncl, closingDates, placeName, courseTitle;
 
         for (let entry of result) {
 
-          cur = entry;
+          cncl = entry.field_kursausfaelle.split('|');
 
-          cncl = cur.field_kursausfaelle.split('|');
           if (cncl[0] === "") {
             cncl.length = 0;
-            cur.bgrClass = Constants.BACKGROUNDS[taxonomyId];
+            entry.bgrClass = Constants.BACKGROUNDS[taxonomyId];
           } else {
-            cur.bgrClass = 'cancelled';
+            entry.bgrClass = 'cancelled';
           }
 
           // Check if place is currently closed
-          if (Helpers.placeClosed(cur.field_schliesszeiten, cur.field_wochentagId)) {
-            cur.bgrClass = 'cancelled';
+          if (Helpers.placeClosed(entry.field_schliesszeiten, entry.field_wochentagId)) {
+            entry.bgrClass = 'cancelled';
           }
 
-          if (!cur.field_wochentagId) {
+          if (!entry.field_wochentagId) {
             continue;
           }
 
-          closingDates = cur.field_schliesszeiten.split(',');
+          closingDates = entry.field_schliesszeiten.split(',');
           if (closingDates[0] === "") {
             closingDates.length = 0;
           }
 
-          if (cur.field_kurzname) {
-            placeName = cur.field_kurzname;
+          if (entry.field_kurzname) {
+            placeName = entry.field_kurzname;
           } else {
-            placeName = cur.field_ort;
+            placeName = entry.field_ort;
           }
 
-          if (cur.field_kurztitel_event) {
-            courseTitle = cur.field_kurztitel_kurs;
+          if (entry.field_kurztitel_event) {
+            courseTitle = entry.field_kurztitel_kurs;
           } else {
-            courseTitle = cur.field_kursverknuepfung;
+            courseTitle = entry.field_kursverknuepfung;
           }
 
           courseTitle = Helpers.escapeHtml(courseTitle);
 
-          this.courses[cur.field_wochentagId].data.push({
+          if (!courseTitle) {
+            console.log('Empty course title at node #' + entry.nid);
+          }
+
+          this.courses[entry.field_wochentagId].data.push({
             'title': courseTitle,
-            'starttime': cur.field_uhrzeit_beginn,
-            'endtime': cur.field_uhrzeit_ende,
+            'starttime': entry.field_uhrzeit_beginn,
+            'endtime': entry.field_uhrzeit_ende,
             'place': placeName,
-            'nId': cur.nid,
+            'nId': entry.nid,
             'cancelDates': cncl,
-            'bgrClass': cur.bgrClass,
-            'dateId': cur.nid_1,
-            'weekday': cur.field_wochentag,
-            'weekdayId': cur.field_wochentagId,
-            'notes': cur.field_bemerkungen,
+            'bgrClass': entry.bgrClass,
+            'notes': entry.field_bemerkungen,
             'closingDates': closingDates,
-            'onlineRegistration': cur.field_onlineanmeldung,
-            'semester': cur.field_periode,
-            'placeId': cur.placeid
+            'onlineRegistration': entry.field_onlineanmeldung,
+            'semester': entry.field_periode,
+            'placeId': entry.placeid
           });
         }
         console.log(this.courses)
       }
     );
+  };
+
+  ngOnInit(): void {
+    this.getCourses(36);
   }
 }
