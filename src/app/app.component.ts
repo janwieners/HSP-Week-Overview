@@ -47,6 +47,49 @@ export class AppComponent {
     }
   };
 
+  private courseTypes = [
+    {
+      title: 'Ballsport und Spiele',
+      taxonomyId: 36
+    },
+    {
+      title: 'Budo- / Kampfsport',
+      taxonomyId: 1
+    },
+    {
+      title: 'Fitness',
+      taxonomyId: 3
+    },
+    {
+      title: 'Gesundheitssport',
+      taxonomyId: 4
+    },
+    {
+      title: 'Individualsport',
+      taxonomyId: 32
+    },
+    {
+      title: 'Natursport',
+      taxonomyId: 33
+    },
+    {
+      title: 'Tanzen',
+      taxonomyId: 6
+    },
+    {
+      title: 'Wassersport',
+      taxonomyId: 34
+    },
+    {
+      title: 'Wintersport',
+      taxonomyId: 35
+    },
+    {
+      title: 'Campus Gummersbach',
+      taxonomyId: 7
+    }
+  ];
+
   constructor(private http: HttpClient) {
   }
 
@@ -58,11 +101,11 @@ export class AppComponent {
 
   private getCourses(taxonomyId) {
 
+    this.resetCourses();
+
     let url = 'https://myhsp.hochschulsport-koeln.de/json/coursedatesbytid/' + taxonomyId + '?_format=json';
 
     this.http.get(url).subscribe((result: any) => {
-
-        this.resetCourses();
 
         let cncl, closingDates, placeName, courseTitle;
 

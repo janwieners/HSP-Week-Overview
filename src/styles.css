@@ -17,7 +17,7 @@ a:hover {
   text-decoration: none;
 }
 
-#coursetable {
+.coursetable {
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -39,16 +39,89 @@ a:hover {
   font-weight: bold;
 }
 
-.bgr-yellow {
-  background-color: rgba(229,195,0,0.15);
+.bgr {
   padding: 5px;
   margin: 2px;
 }
 
+.bgr-yellow {
+  background-color: rgba(229,195,0,0.15);
+}
+
 .bgr-yellow:hover {
   background-color: rgba(229,195,0,1);
-  padding: 5px;
-  margin: 2px;
+}
+
+.bgr-orange {
+  background-color: rgba(254,142,22,0.15);
+}
+
+.bgr-orange:hover {
+  background-color: rgba(254,142,22,1);
+}
+
+.bgr-red {
+  background-color:  rgba(178,34,34,0.25);
+}
+
+.bgr-red:hover {
+  background-color: rgba(178,34,34,1);
+}
+
+.bgr-pink {
+  background-color: rgba(195,79,124,0.15);
+}
+
+.bgr-pink:hover {
+  background-color: rgba(195,79,124,1);
+}
+
+.bgr-purple {
+  background-color: rgba(127,92,146,0.15);
+}
+
+.bgr-purple:hover {
+  background-color: rgba(127,92,146,1);
+}
+
+.bgr-darkblue {
+  background-color: rgba(71,71,163,0.15);
+}
+
+.bgr-darkblue:hover {
+  background-color: rgba(71,71,163,1);
+}
+
+.bgr-lightblue {
+  background-color: rgba(0,113,175,0.25);
+}
+
+.bgr-lightblue:hover {
+  background-color: rgba(0,113,175,1);
+}
+
+.bgr-cyan {
+  background-color: rgba(0,135,135,0.25);
+}
+
+.bgr-cyan:hover {
+  background-color: rgba(0,135,135,1);
+}
+
+.bgr-green {
+  background-color: rgba(0,128,0,0.05);
+}
+
+.bgr-green:hover {
+  background-color: rgba(0,128,0,1);
+}
+
+.bgr-lightgreen {
+  background-color: rgba(165,190,39,0.15);
+}
+
+.bgr-lightgreen:hover {
+  background-color: rgba(165,190,39,1);
 }
 
 .col {
