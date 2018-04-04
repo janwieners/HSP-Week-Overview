@@ -21,10 +21,20 @@
             <div *ngFor="let course of courses[dId].data">
 
               <a href="#"
-                 class="bgr {{ course.bgrClass }}">
-                <div class="course">
-                  <h3>{{ course.title }}</h3>
-                  {{ course.starttime }} - {{ course.endtime }} / {{ course.place }}
+                 class="bgr {{ course.bgrClass }}"
+                 (click)="showCourse(course.nId)">
+
+                <ng-template #popContent>{{ course.notes }}</ng-template>
+                <div [ngbPopover]="popContent"
+                     popoverTitle="{{ course.title }}"
+                     triggers="manual" #p="ngbPopover"
+                     (mouseenter)="course.notes && p.open()" (mouseleave)="p.close()">
+
+                  <div class="course">
+                    <h3>{{ course.title }} <span *ngIf="course.notes">*</span></h3>
+                    {{ course.starttime }} - {{ course.endtime }} / {{ course.place }}
+                  </div>
+
                 </div>
               </a>
             </div>

@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 
 import {HttpClient} from '@angular/common/http';
 
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+
 import {Constants} from "./constants";
 import {Helpers} from "./helpers";
 
@@ -11,6 +13,9 @@ import {Helpers} from "./helpers";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  constructor(private http: HttpClient, private modalService: NgbModal) {
+  }
 
   private dateIds = [
     8, 9, 10, 11, 12, 13, 14
@@ -90,20 +95,21 @@ export class AppComponent {
     }
   ];
 
-  constructor(private http: HttpClient) {
-  }
-
   private resetCourses() {
     for (let day in this.courses) {
       this.courses[day].data.length = 0;
     }
   };
 
+  private showCourse(courseId) {
+    this.modalService.open("Test");
+  };
+
   private getCourses(taxonomyId) {
 
     this.resetCourses();
 
-    let url = 'https://myhsp.hochschulsport-koeln.de/json/coursedatesbytid/' + taxonomyId + '?_format=json';
+    let url = 'https://myhsp.hochschulsport-koeln.de/json/datesbytid/' + taxonomyId + '?_format=json';
 
     this.http.get(url).subscribe((result: any) => {
 
@@ -160,7 +166,7 @@ export class AppComponent {
             'nId': entry.nid,
             'cancelDates': cncl,
             'bgrClass': entry.bgrClass,
-            'notes': entry.field_bemerkungen,
+            'notes': Helpers.escapeHtml(entry.field_bemerkungen.replace('<br />', ',')),
             'closingDates': closingDates,
             'onlineRegistration': entry.field_onlineanmeldung,
             'semester': entry.field_periode,
