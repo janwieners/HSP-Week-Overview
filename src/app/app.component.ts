@@ -170,7 +170,8 @@ export class AppComponent {
             'closingDates': closingDates,
             'onlineRegistration': entry.field_onlineanmeldung,
             'semester': entry.field_periode,
-            'placeId': entry.placeid
+            'placeId': entry.placeid,
+            'level': entry.field_schwierigkeitslevel
           });
         }
         console.log(this.courses)

@@ -32,7 +32,7 @@
 
                   <div class="course">
                     <h3>{{ course.title }} <span *ngIf="course.notes">*</span></h3>
-                    {{ course.starttime }} - {{ course.endtime }} / {{ course.place }}
+                    {{ course.starttime }} - {{ course.endtime }} / {{ course.place }} <span *ngIf="course.level">/ {{ course.level }}</span>
                   </div>
 
                 </div>
