@@ -52,46 +52,56 @@ export class AppComponent {
     }
   };
 
-  private courseTypes = [
+  public courseTypes = [
     {
       title: 'Ballsport und Spiele',
-      taxonomyId: 36
+      taxonomyId: 36,
+      bgr: Constants.BACKGROUNDS[36]
     },
     {
       title: 'Budo- / Kampfsport',
-      taxonomyId: 1
+      taxonomyId: 1,
+      bgr: Constants.BACKGROUNDS[1]
     },
     {
       title: 'Fitness',
-      taxonomyId: 3
+      taxonomyId: 3,
+      bgr: Constants.BACKGROUNDS[3]
     },
     {
       title: 'Gesundheitssport',
-      taxonomyId: 4
+      taxonomyId: 4,
+      bgr: Constants.BACKGROUNDS[4]
     },
     {
       title: 'Individualsport',
-      taxonomyId: 32
+      taxonomyId: 32,
+      bgr: Constants.BACKGROUNDS[32]
     },
     {
       title: 'Natursport',
-      taxonomyId: 33
+      taxonomyId: 33,
+      bgr: Constants.BACKGROUNDS[33]
     },
     {
       title: 'Tanzen',
-      taxonomyId: 6
+      taxonomyId: 6,
+      bgr: Constants.BACKGROUNDS[6]
     },
     {
       title: 'Wassersport',
-      taxonomyId: 34
+      taxonomyId: 34,
+      bgr: Constants.BACKGROUNDS[34]
     },
     {
       title: 'Wintersport',
-      taxonomyId: 35
+      taxonomyId: 35,
+      bgr: Constants.BACKGROUNDS[35]
     },
     {
       title: 'Campus Gummersbach',
-      taxonomyId: 7
+      taxonomyId: 7,
+      bgr: Constants.BACKGROUNDS[7]
     }
   ];
 
@@ -102,7 +112,6 @@ export class AppComponent {
   };
 
   private showCourse(courseId) {
-    this.modalService.open("Test");
   };
 
   private getCourses(taxonomyId) {
@@ -174,7 +183,6 @@ export class AppComponent {
             'level': entry.field_schwierigkeitslevel
           });
         }
-        console.log(this.courses)
       }
     );
   };

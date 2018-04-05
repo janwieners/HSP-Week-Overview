@@ -5,14 +5,14 @@
     <ngb-tab *ngFor="let courseType of courseTypes">
 
       <ng-template ngbTabTitle>
-        <div (click)="getCourses(courseType.taxonomyId)">
+        <div (click)="getCourses(courseType.taxonomyId)" class="navtab {{ courseType.bgr }}">
           {{ courseType.title }}
         </div>
       </ng-template>
 
       <ng-template ngbTabContent>
 
-        <div class="row coursetable">
+        <div class="row coursetable border-{{ courseType.bgr }}">
 
           <div class="col"
                *ngFor="let dId of dateIds">
