@@ -20,7 +20,7 @@
             <h2 class="courseday">{{ courses[dId].title }}</h2>
             <div *ngFor="let course of courses[dId].data">
 
-              <a href="#"
+              <a href="https://www.hochschulsport-koeln.de/node/{{ course.nId }}"
                  class="bgr {{ course.bgrClass }}"
                  (click)="showCourse(course.nId)">
 
