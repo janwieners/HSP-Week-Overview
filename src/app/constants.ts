@@ -1,5 +1,12 @@
 export class Constants {
 
+  public static DEVELOPMENT = false;
+
+  public static API = {
+    prod: '/json/datesbytid/TAXOID?_format=json',
+    dev: 'https://myhsp.hochschulsport-koeln.de/json/datesbytid/TAXOID?_format=json'
+  };
+
   public static WEEKDAYS = {
     0: 14, // Sunday is related to taxonomy item 14 (admin/structure/taxonomy/manage/wochentage/overview)
     1: 8, // Monday is related to taxonomy item 8

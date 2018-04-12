@@ -118,7 +118,14 @@ export class AppComponent {
 
     this.resetCourses();
 
-    let url = 'https://myhsp.hochschulsport-koeln.de/json/datesbytid/' + taxonomyId + '?_format=json';
+
+    let url;
+
+    if (Constants.DEVELOPMENT) {
+      url = Constants.API.dev.replace('TAXOID', taxonomyId);
+    } else {
+      url = Constants.API.prod.replace('TAXOID', taxonomyId);
+    }
 
     this.http.get(url).subscribe((result: any) => {
 
