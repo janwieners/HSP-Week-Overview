@@ -4,8 +4,8 @@ import {HttpClient} from '@angular/common/http';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
-import {Constants} from "./constants";
-import {Helpers} from "./helpers";
+import {Constants} from './constants';
+import {Helpers} from './helpers';
 
 @Component({
   selector: 'app-root',
@@ -135,7 +135,7 @@ export class AppComponent {
 
           cncl = entry.field_kursausfaelle.split('|');
 
-          if (cncl[0] === "") {
+          if (cncl[0] === '') {
             cncl.length = 0;
             entry.bgrClass = Constants.BACKGROUNDS[taxonomyId];
           } else {
@@ -152,7 +152,7 @@ export class AppComponent {
           }
 
           closingDates = entry.field_schliesszeiten.split(',');
-          if (closingDates[0] === "") {
+          if (closingDates[0] === '') {
             closingDates.length = 0;
           }
 

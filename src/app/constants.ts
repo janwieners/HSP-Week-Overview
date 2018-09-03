@@ -1,6 +1,6 @@
 export class Constants {
 
-  public static DEVELOPMENT = false;
+  public static DEVELOPMENT = true;
 
   public static API = {
     prod: '/json/datesbytid/TAXOID?_format=json',
@@ -28,15 +28,15 @@ export class Constants {
   };
 
   public static BACKGROUNDS = {
-    36: "bgr-yellow",   // Ballsport und Spiele
-    1: "bgr-orange",    // Kampfsport
-    3: "bgr-red",       // Fitness
-    4: "bgr-pink",      // Gesundheitssport
-    32: "bgr-purple",   // Individualsport
-    33: "bgr-darkblue", // Natursport
-    6: "bgr-lightblue", // Tanzen
-    34: "bgr-cyan",     // Wassersport
-    35: "bgr-green",    // Wintersport
-    7: "bgr-lightgreen" // Campus Gummersbach
+    36: 'bgr-yellow',   // Ballsport und Spiele
+    1: 'bgr-orange',    // Kampfsport
+    3: 'bgr-red',       // Fitness
+    4: 'bgr-pink',      // Gesundheitssport
+    32: 'bgr-purple',   // Individualsport
+    33: 'bgr-darkblue', // Natursport
+    6: 'bgr-lightblue', // Tanzen
+    34: 'bgr-cyan',     // Wassersport
+    35: 'bgr-green',    // Wintersport
+    7: 'bgr-lightgreen' // Campus Gummersbach
   };
 }
