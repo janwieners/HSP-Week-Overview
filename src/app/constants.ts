@@ -3,8 +3,8 @@ export class Constants {
   public static DEVELOPMENT = false;
 
   public static API = {
-    // prod: '/json/datesbytid/TAXOID?_format=json', // Vorlesungszeit
-    prod: '/json/datesbytidvorlesungsfrei/TAXOID?_format=json', // vorlesungsfreie Zeit
+    prod: '/json/datesbytid/TAXOID?_format=json', // Vorlesungszeit
+    // prod: '/json/datesbytidvorlesungsfrei/TAXOID?_format=json', // vorlesungsfreie Zeit
     dev: 'https://myhsp.hochschulsport-koeln.de/json/datesbytid/TAXOID?_format=json'
   };
 
