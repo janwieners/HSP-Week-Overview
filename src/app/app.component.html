@@ -21,8 +21,7 @@
             <div *ngFor="let course of courses[dId].data">
 
               <a href="https://www.hochschulsport-koeln.de/node/{{ course.nId }}"
-                 class="bgr {{ course.bgrClass }}"
-                 (click)="showCourse(course.nId)">
+                 class="bgr {{ course.bgrClass }}">
 
                 <ng-template #popContent>{{ course.notes }}</ng-template>
                 <div [ngbPopover]="popContent"

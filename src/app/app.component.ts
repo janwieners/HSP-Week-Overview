@@ -1,9 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import {HttpClient} from '@angular/common/http';
-
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-
 import {Constants} from './constants';
 import {Helpers} from './helpers';
 
@@ -12,9 +9,9 @@ import {Helpers} from './helpers';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  constructor(private http: HttpClient, private modalService: NgbModal) {
+  constructor(private http: HttpClient) {
   }
 
   private dateIds = [
@@ -109,9 +106,6 @@ export class AppComponent {
     for (let day in this.courses) {
       this.courses[day].data.length = 0;
     }
-  };
-
-  private showCourse(courseId) {
   };
 
   private getCourses(taxonomyId) {
