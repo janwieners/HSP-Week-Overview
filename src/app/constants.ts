@@ -3,9 +3,9 @@ export class Constants {
   public static DEVELOPMENT = false;
 
   public static API = {
-    prod: '/json/datesbytid/TAXOID?_format=json', // Vorlesungszeit
-    // prod: '/json/datesbytidvorlesungsfrei/TAXOID?_format=json', // vorlesungsfreie Zeit
-    dev: 'https://myhsp.hochschulsport-koeln.de/json/datesbytid/TAXOID?_format=json'
+    prod: 'https://hochschulsport-koeln.de/json/datesbytid/TAXOID?_format=json', // Vorlesungszeit
+    // prod: 'https://hochschulsport-koeln.de/json/datesbytidvorlesungsfrei/TAXOID?_format=json', // vorlesungsfreie Zeit
+    dev: 'https://hochschulsport-koeln.de/json/datesbytid/TAXOID?_format=json'
   };
 
   public static WEEKDAYS = {
