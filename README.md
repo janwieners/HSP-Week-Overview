@@ -12,4 +12,4 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build --prod --base-href=` to build the project.
+Run `ng build --prod --buildOptimizer=true --base-href=` to build the project.
