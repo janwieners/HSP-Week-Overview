@@ -53,6 +53,14 @@ export class AppComponent implements OnInit {
 
   public courseTypes = [
     {
+      title: 'Fitness',
+      taxonomyId: 3,
+      bgr: Constants.BACKGROUNDS[3]
+    }
+  ];
+
+  /* public courseTypes = [
+    {
       title: 'Ballsport und Spiele',
       taxonomyId: 36,
       bgr: Constants.BACKGROUNDS[36]
@@ -103,6 +111,7 @@ export class AppComponent implements OnInit {
       bgr: Constants.BACKGROUNDS[7]
     }
   ];
+   */
 
   private resetCourses() {
     for (let day in this.courses) {
