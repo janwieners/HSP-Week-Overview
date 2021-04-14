@@ -20,7 +20,22 @@
             <h2 class="courseday">{{ courses[dId].title }}</h2>
             <div *ngFor="let course of courses[dId].data">
 
-              <a href="https://www.hochschulsport-koeln.de/node/{{ course.nId }}"
+              <!-- Corona Mode -->
+              <a *ngIf="corona"
+                 target="_blank"
+                 href="{{course.zoom}}"
+                 class="bgr {{ course.bgrClass }}">
+                <ng-template #popContent>{{ course.notes }}</ng-template>
+                <div class="course">
+                  <h3>{{ course.title }} <span *ngIf="course.notes">*</span></h3>
+                  {{ course.starttime }} - {{ course.endtime }} / {{ course.place }} <span
+                  *ngIf="course.level">/ {{ course.level }}</span>
+                </div>
+              </a>
+
+              <!-- Standard Mode -->
+              <a *ngIf="!corona"
+                 href="https://www.hochschulsport-koeln.de/node/{{ course.nId }}"
                  class="bgr {{ course.bgrClass }}">
 
                 <ng-template #popContent>{{ course.notes }}</ng-template>
@@ -31,7 +46,8 @@
 
                   <div class="course">
                     <h3>{{ course.title }} <span *ngIf="course.notes">*</span></h3>
-                    {{ course.starttime }} - {{ course.endtime }} / {{ course.place }} <span *ngIf="course.level">/ {{ course.level }}</span>
+                    {{ course.starttime }} - {{ course.endtime }} / {{ course.place }} <span
+                    *ngIf="course.level">/ {{ course.level }}</span>
                   </div>
 
                 </div>

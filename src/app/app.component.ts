@@ -11,6 +11,8 @@ import {Helpers} from './helpers';
 })
 export class AppComponent implements OnInit {
 
+  public corona = Constants.CoronaMode;
+
   constructor(private http: HttpClient) {
   }
 
@@ -112,7 +114,6 @@ export class AppComponent implements OnInit {
 
     this.resetCourses();
 
-
     let url;
 
     if (Constants.DEVELOPMENT) {
@@ -125,7 +126,10 @@ export class AppComponent implements OnInit {
 
         let cncl, closingDates, placeName, courseTitle;
 
-        for (let entry of result) {
+        for (const entry of result) {
+          if (Constants.CoronaMode && entry.zoomlink.length === 0) {
+            continue;
+          }
 
           cncl = entry.field_kursausfaelle.split('|');
 
@@ -181,7 +185,8 @@ export class AppComponent implements OnInit {
             'onlineRegistration': entry.field_onlineanmeldung,
             'semester': entry.field_periode,
             'placeId': entry.placeid,
-            'level': entry.field_schwierigkeitslevel
+            'level': entry.field_schwierigkeitslevel,
+            'zoom': entry.zoomlink
           });
         }
       }

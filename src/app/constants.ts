@@ -2,6 +2,8 @@ export class Constants {
 
   public static DEVELOPMENT = false;
 
+  public static CoronaMode = true;
+
   public static API = {
     prod: 'https://hochschulsport-koeln.de/json/datesbytid/TAXOID?_format=json', // Vorlesungszeit
     // prod: 'https://hochschulsport-koeln.de/json/datesbytidvorlesungsfrei/TAXOID?_format=json', // vorlesungsfreie Zeit
