@@ -11,6 +11,7 @@ import {Helpers} from './helpers';
 })
 export class AppComponent implements OnInit {
 
+  private initialCourseType = 3;
   public corona = Constants.CoronaMode;
 
   constructor(private http: HttpClient) {
@@ -203,6 +204,6 @@ export class AppComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.getCourses(36);
+    this.getCourses(this.initialCourseType);
   }
 }
