@@ -137,7 +137,7 @@ export class AppComponent implements OnInit {
         let cncl, closingDates, placeName, courseTitle;
 
         for (const entry of result) {
-          if (Constants.CoronaMode && entry.zoomlink.length === 0) {
+          if (Constants.CoronaMode && (entry.zoomlink.length === 0 || entry.zoomlink === false)) {
             continue;
           }
 
